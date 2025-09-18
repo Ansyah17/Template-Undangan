@@ -100,6 +100,14 @@
         font-weight: normal;
     }
 
+    #icon-pp{
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        padding: 10px;
+        border-radius: 100%;
+    }
+
     /* Bottom Navbar */
     .bottom-nav {
         position: fixed;
@@ -241,6 +249,10 @@
 
 <div class="swipe-indicator" id="swipeIndicator">Geser ke atas/bawah</div>
 
+<!-- Music -->
+<button class="none" id="icon-pp">⏸</button>
+<audio id="bgmusic" src=""></audio>
+
 <script>
 const sections = document.querySelectorAll('.section');
 const navLinks = document.querySelectorAll('.bottom-nav a');
@@ -248,6 +260,8 @@ let currentIndex = 0;
 let scrolling = false;
 let scrollDisabled = true; // 🚫 scroll awalnya dimatikan
 let startY = 0;
+let iconPp = document.getElementById("icon-pp");
+let bgMusic = document.getElementById("bgmusic");
 
 function openButtton() {
     let button = document.getElementById("open");
@@ -257,24 +271,35 @@ function openButtton() {
     let navbarAcara = document.getElementById("navbar-acara");
     let swipeIndicator = document.getElementById("swipeIndicator");
     let elem = document.documentElement;
-
+    
     home.classList.remove("active");
     acara.classList.add("active");
     navbar.style.display = "flex";
     navbarAcara.classList.add("active");
     navbarAcara.removeAttribute("id");
     button.classList.add("none");
+    bgMusic.play();
+    iconPp.style.display = "block";
     scrollDisabled = false; // ✅ scroll baru diaktifkan setelah klik tombol
     if (elem.requestFullscreen){
         elem.requestFullscreen();
     }
-    
     // Tampilkan indikator swipe sebentar
     swipeIndicator.style.display = "block";
     setTimeout(() => {
         swipeIndicator.style.display = "none";
     }, 3000);
 }
+
+iconPp.addEventListener("click", () => {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        floatingBtn.textContent = "⏸";
+      } else {
+        bgMusic.pause();
+        floatingBtn.textContent = "▶️";
+      }
+    });
 
 function showSection(index) {
     if (index < 0) index = 0;
