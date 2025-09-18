@@ -209,8 +209,16 @@
     <p>Kirimkan hadiah atau doa untuk kami.</p>
     <!-- Tambahkan form atau informasi transfer -->
     <div style="margin-top: 20px;">
-        <p>Nomor Rekening: XXXX-XXXX-XXXX</p>
-        <p>Atau hadiah langsung ke lokasi acara</p>
+        <div>
+            <button id="button-rek" onclick="rekening()" style="padding: 15px 20px;"><i class="fa fa-wallet" aria-hidden="true"></i> No. Rekenig</button>
+            <button id="button-had" onclick="hadiah()" style="padding: 15px 20px;"><i class="fa fa-gift" aria-hidden="true"></i> Kirim Hadiah</button>
+        </div>
+        <p class="none" id="rekening">Nomor Rekening: XXXX-XXXX-XXXX</p>
+        <p class="none" id="hadiah">hadiah bisa dikirim ke<br><br>
+        PAUD TERPADU DAN PKBM AL YUSRAA <br>
+        Jl. Mesjid Jami No.23, RT.01, <br>
+        Surgi Mufti, Kec. Banjarmasin Utara, <br>
+        Kota Banjarmasin</p>
     </div>
 </section>
 
@@ -306,6 +314,31 @@ var countdown = setInterval(function() {
     document.getElementById("countdown").innerHTML = "Acara telah berlangsung";
   }
 }, 1000);
+
+// GIFT
+function rekening() {
+    let rekening = document.getElementById("rekening");
+    let hadiah = document.getElementById("hadiah");
+    let buttonRek = document.getElementById("button-rek");
+    let buttonHad = document.getElementById("button-had");
+
+    rekening.classList.remove("none");
+    hadiah.classList.add("none");
+    buttonRek.classList.add("none");
+    buttonHad.classList.remove("none");
+}
+
+function hadiah() {
+    let rekening = document.getElementById("rekening");
+    let hadiah = document.getElementById("hadiah");
+    let buttonRek = document.getElementById("button-rek");
+    let buttonHad = document.getElementById("button-had");
+
+    rekening.classList.add("none");
+    hadiah.classList.remove("none");
+    buttonHad.classList.add("none");
+    buttonRek.classList.remove("none")
+}
 
 // Navbar click
 navLinks.forEach(link => {
