@@ -256,6 +256,7 @@ function openButtton() {
     let acara = document.getElementById("acara");
     let navbarAcara = document.getElementById("navbar-acara");
     let swipeIndicator = document.getElementById("swipeIndicator");
+    let elem = document.documentElement;
 
     home.classList.remove("active");
     acara.classList.add("active");
@@ -264,6 +265,9 @@ function openButtton() {
     navbarAcara.removeAttribute("id");
     button.classList.add("none");
     scrollDisabled = false; // ✅ scroll baru diaktifkan setelah klik tombol
+    if (elem.requestFullscreen){
+        elem.requestFullscreen();
+    }
     
     // Tampilkan indikator swipe sebentar
     swipeIndicator.style.display = "block";
