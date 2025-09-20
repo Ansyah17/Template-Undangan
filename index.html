@@ -190,22 +190,22 @@
         /* Ornament */
         .orna-1{
             top: -1rem;
-            left: -14rem;
+            left: -6rem;
         }
 
         .orna-2{
             top: -2rem;
-            right: -18rem;
+            right: -12rem;
         }
 
         .orna-3{
             bottom: -2rem;
-            right: -18rem;
+            right: -12rem;
         }
 
         .orna-4{
             bottom: -2rem;
-            left: -17rem;
+            left: -10rem;
         }
 
         /* Bottom Navbar */
@@ -279,10 +279,10 @@
     <section id="home" class="section active poppins">
         <!-- Ornament -->
          <div>
-            <img class="absolute orna-1" src="e=mc.svg" alt="" style="width: 400px;rotate: 135deg;transform: scale(-1);">
-            <img class="absolute orna-2" src="atom.svg" alt="" style="width: 500px;">
-            <img class="absolute orna-3" src="botol.svg" alt="" style="width: 500px;rotate: 135deg;transform: scaleY(-1);">
-            <img class="absolute orna-4" src="dna.svg" alt="" style="width: 500px;rotate: 110deg;transform: scale(-1);">
+            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;rotate: 135deg;transform: scale(-1);">
+            <img class="absolute orna-2" src="atom.svg" alt="" style=" z-index: -1; width: 500px;">
+            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;rotate: 135deg;transform: scaleY(-1);">
+            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;rotate: 110deg;transform: scale(-1);">
          </div>
         <h1>Happy 7Th Birthday</h1>
         <img class="img-home" src="lele.jpg" alt="Foto"><br><br>
@@ -401,13 +401,6 @@
         let startY = 0;
         let iconPp = document.getElementById("icon-pp");
         let bgMusic = document.getElementById("bgmusic");
-        var nomorRek = document.getElementById("noRek").innerText;
-    
-    navigator.clipboard.writeText(nomorRek).then(function() {
-        alert("Nomor rekening berhasil disalin: " + nomorRek);
-    }).catch(function(err) {
-        alert("Gagal menyalin: " + err);
-    });
 
         function openButtton() {
             let button = document.getElementById("open");
