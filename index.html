@@ -53,6 +53,10 @@
             margin-top: 20px;
         }
 
+        .absolute{
+            position: absolute;
+        }
+
         .button-rek{
             padding: 8px 12px;
             border-radius: 10px;
@@ -183,6 +187,27 @@
             line-height: 2.5;
         }
 
+        /* Ornament */
+        .orna-1{
+            top: -1rem;
+            left: -14rem;
+        }
+
+        .orna-2{
+            top: -2rem;
+            right: -18rem;
+        }
+
+        .orna-3{
+            bottom: -2rem;
+            right: -18rem;
+        }
+
+        .orna-4{
+            bottom: -2rem;
+            left: -17rem;
+        }
+
         /* Bottom Navbar */
         .bottom-nav {
             position: fixed;
@@ -252,6 +277,13 @@
 
     <!-- Sections -->
     <section id="home" class="section active poppins">
+        <!-- Ornament -->
+         <div>
+            <img class="absolute orna-1" src="e=mc.svg" alt="" style="width: 400px;rotate: 135deg;transform: scale(-1);">
+            <img class="absolute orna-2" src="atom.svg" alt="" style="width: 500px;">
+            <img class="absolute orna-3" src="botol.svg" alt="" style="width: 500px;rotate: 135deg;transform: scaleY(-1);">
+            <img class="absolute orna-4" src="dna.svg" alt="" style="width: 500px;rotate: 110deg;transform: scale(-1);">
+         </div>
         <h1>Happy 7Th Birthday</h1>
         <img class="img-home" src="lele.jpg" alt="Foto"><br><br>
         <p>With Pleasure</p>
@@ -322,7 +354,7 @@
             <div class="cashless-card none poppins" id="rekening">
                 <img src="" alt="BRI" class="bank-logo">
                 <div class="cashless-details">
-                    <p class="rek-number"><strong>87654321</strong></p>
+                    <p class="rek-number" id="noRek"><strong>87654321</strong></p>
                     <button onclick="copyRek('87654321')" class="button-rek">Salin Rekening</button>
                     <p class="bank-name">BRI - Atas Nama Rekening</p>
                 </div>
@@ -369,6 +401,13 @@
         let startY = 0;
         let iconPp = document.getElementById("icon-pp");
         let bgMusic = document.getElementById("bgmusic");
+        var nomorRek = document.getElementById("noRek").innerText;
+    
+    navigator.clipboard.writeText(nomorRek).then(function() {
+        alert("Nomor rekening berhasil disalin: " + nomorRek);
+    }).catch(function(err) {
+        alert("Gagal menyalin: " + err);
+    });
 
         function openButtton() {
             let button = document.getElementById("open");
