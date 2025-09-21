@@ -79,7 +79,8 @@
             opacity: 0;
             pointer-events: none;
             background-image: url(background-3.jpg);
-            overflow: hidden;
+            transform: scale(0.9);
+            transition: opacity 1s ease, transform 1s ease-out;
         }
 
         .section.active {
@@ -186,78 +187,25 @@
             line-height: 2.5;
         }
 
-        /* Ornament Styles with Animations */
+        /* Ornament */
         .orna-1{
             top: -1rem;
             left: -8rem;
-            animation: slideInTopLeft 1.5s ease-out forwards;
-            opacity: 0;
         }
 
         .orna-2{
             top: -2rem;
             right: -12rem;
-            animation: slideInTopRight 1.5s ease-out 0.3s forwards;
-            opacity: 0;
         }
 
         .orna-3{
             bottom: 0rem;
             right: -12rem;
-            animation: slideInBottomRight 1.5s ease-out 0.6s forwards;
-            opacity: 0;
         }
 
         .orna-4{
             bottom: 0rem;
             left: -12rem;
-            animation: slideInBottomLeft 1.5s ease-out 0.9s forwards;
-            opacity: 0;
-        }
-
-        /* Animasi untuk ornamen */
-        @keyframes slideInTopLeft {
-            from {
-                transform: translate(-100%, -100%) rotate(135deg) scale(-1);
-                opacity: 0;
-            }
-            to {
-                transform: translate(0, 0) rotate(135deg) scale(-1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInTopRight {
-            from {
-                transform: translate(100%, -100%);
-                opacity: 0;
-            }
-            to {
-                transform: translate(0, 0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInBottomRight {
-            from {
-                transform: translate(100%, 100%) rotate(135deg) scaleY(-1);
-                opacity: 0;
-            }
-            to {
-                transform: translate(0, 0) rotate(135deg) scaleY(-1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInBottomLeft {
-            from {
-                transform: translate(-100%, 100%) rotate(110deg) scale(-1);
-                opacity: 0;
-            }
-            to {
-                transform: translate(0, 0) rotate(110deg) scale(-1);
-                opacity: 1;
-            }
         }
 
         /* Bottom Navbar */
@@ -314,33 +262,65 @@
             z-index: 999;
         }
 
+        /* Animasi untuk ornamen */
+        @keyframes slideInFromTopLeft {
+            0% {
+                transform: translateX(10px) translateY(100px) scale(-1);
+            }
+            100% {
+                transform: translate(0, 0) scale(-1);
+            }
+        }
+
+        @keyframes slideInFromTopRight {
+            0% {
+                transform: translate(100px, -100px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes slideInFromBottomRight {
+            0% {
+                transform: translateX(-10px) translateY(-100px) scaleY(-1);
+            }
+            100% {
+                transform: translate(0, 0) scaleY(-1);
+            }
+        }
+
+        @keyframes slideInFromBottomLeft {
+            0% {
+                transform: translateX(100px) translateY(10px) scale(-1);
+            }
+            100% {
+                transform: translate(0, 0)scale(-1);
+            }
+        }
+
+        .animate-orna-1 {
+            animation: slideInFromTopLeft 1.5s ease-out forwards;
+        }
+
+        .animate-orna-2 {
+            animation: slideInFromTopRight 1.5s ease-out forwards;
+        }
+
+        .animate-orna-3 {
+            animation: slideInFromBottomRight 1.5s ease-out forwards;
+        }
+
+        .animate-orna-4 {
+            animation: slideInFromBottomLeft 1.5s ease-out forwards;
+        }
+
         @media (max-width: 414px) {
 
             body,
             .section,
             .bottom-nav {
                 width: 100%;
-            }
-            
-            /* Adjust ornament positions for mobile */
-            .orna-1 {
-                left: -10rem;
-                width: 300px !important;
-            }
-            
-            .orna-2 {
-                right: -10rem;
-                width: 400px !important;
-            }
-            
-            .orna-3 {
-                right: -10rem;
-                width: 400px !important;
-            }
-            
-            .orna-4 {
-                left: -10rem;
-                width: 400px !important;
             }
         }
     </style>
@@ -352,14 +332,14 @@
     <section id="home" class="section active poppins">
         <!-- Ornament -->
          <div>
-            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;">
+            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;rotate: 135deg;transform: scale(-1);">
             <img class="absolute orna-2" src="atom.svg" alt="" style=" z-index: -1; width: 500px;">
-            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;">
-            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;">
+            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;rotate: 135deg;transform: scaleY(-1);">
+            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;rotate: 110deg;transform: scale(-1);">
          </div>
          <!-- isi -->
         <h1>Happy 7Th Birthday</h1>
-        <img class="img-home" src="lele.jpg" alt="Foto"><br><br>
+        <img class="img-home" src="aliff.jpg" alt="Foto"><br><br>
         <p>With Pleasure</p>
         <h2>Guest Name</h2>
         <button class="open button" id="open" onclick="openButtton()">Open Invitation</button>
@@ -368,10 +348,10 @@
     <section id="acara" class="section">
         <!-- Ornament -->
          <div>
-            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;">
+            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;rotate: 135deg;transform: scale(-1);">
             <img class="absolute orna-2" src="atom.svg" alt="" style=" z-index: -1; width: 500px;">
-            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;">
-            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;">
+            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;rotate: 135deg;transform: scaleY(-1);">
+            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;rotate: 110deg;transform: scale(-1);">
          </div>
         <h1 class="poppins">Welcome to</h1>
         <h1 class="poppins">7Th</h1>
@@ -411,10 +391,10 @@
     <section id="maps" class="section">
         <!-- Ornament -->
          <div>
-            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;">
+            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;rotate: 135deg;transform: scale(-1);">
             <img class="absolute orna-2" src="atom.svg" alt="" style=" z-index: -1; width: 500px;">
-            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;">
-            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;">
+            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;rotate: 135deg;transform: scaleY(-1);">
+            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;rotate: 110deg;transform: scale(-1);">
          </div>
         <h1 class="poppins">Lokasi Acara</h1>
         <p class="poppins">Lihat peta untuk menemukan lokasi dengan mudah.</p>
@@ -431,10 +411,10 @@
     <section id="gift" class="section">
         <!-- Ornament -->
          <div>
-            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;">
+            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;rotate: 135deg;transform: scale(-1);">
             <img class="absolute orna-2" src="atom.svg" alt="" style=" z-index: -1; width: 500px;">
-            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;">
-            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;">
+            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;rotate: 135deg;transform: scaleY(-1);">
+            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;rotate: 110deg;transform: scale(-1);">
          </div>
         <h1>Hadiah</h1>
         <p>Kirimkan hadiah atau doa untuk kami.</p>
@@ -467,10 +447,10 @@
     <section id="thanks" class="section">
         <!-- Ornament -->
          <div>
-            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;">
+            <img class="absolute orna-1" src="e=mc.svg" alt="" style=" z-index: -1; width: 400px;rotate: 135deg;transform: scale(-1);">
             <img class="absolute orna-2" src="atom.svg" alt="" style=" z-index: -1; width: 500px;">
-            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;">
-            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;">
+            <img class="absolute orna-3" src="botol.svg" alt="" style=" z-index: -1;width: 500px;rotate: 135deg;transform: scaleY(-1);">
+            <img class="absolute orna-4" src="dna.svg" alt="" style="z-index: -1;width: 500px;rotate: 110deg;transform: scale(-1);">
          </div>
         <h1 class="poppins">Terima Kasih</h1>
         <p class="poppins">Atas kehadiran dan doa restunya.</p>
@@ -522,6 +502,10 @@
             bgMusic.play();
             iconPp.style.display = "block";
             scrollDisabled = false; // ✅ scroll baru diaktifkan setelah klik tombol
+            
+            // Trigger animasi ornamen untuk section acara
+            triggerOrnamentAnimation(acara);
+            
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
             }
@@ -554,6 +538,35 @@
                 link.classList.toggle('active', i === index);
             });
             currentIndex = index;
+            
+            // Trigger animasi ornamen untuk section yang aktif
+            triggerOrnamentAnimation(sections[index]);
+        }
+
+        // Fungsi untuk memicu animasi ornamen
+        function triggerOrnamentAnimation(section) {
+            // Hapus class animasi sebelumnya
+            const orn1 = section.querySelector('.orna-1');
+            const orn2 = section.querySelector('.orna-2');
+            const orn3 = section.querySelector('.orna-3');
+            const orn4 = section.querySelector('.orna-4');
+            
+            orn1.classList.remove('animate-orna-1');
+            orn2.classList.remove('animate-orna-2');
+            orn3.classList.remove('animate-orna-3');
+            orn4.classList.remove('animate-orna-4');
+            
+            // Trigger reflow
+            void orn1.offsetWidth;
+            void orn2.offsetWidth;
+            void orn3.offsetWidth;
+            void orn4.offsetWidth;
+            
+            // Tambahkan class animasi kembali
+            orn1.classList.add('animate-orna-1');
+            orn2.classList.add('animate-orna-2');
+            orn3.classList.add('animate-orna-3');
+            orn4.classList.add('animate-orna-4');
         }
 
         // Set the date we're counting down to
@@ -635,7 +648,7 @@
             const diffY = startY - endY;
 
             // Jika pergeseran cukup signifakan (minimal 50px)
-            if (Math.abs(diffY) > 50) {
+            if (Math.abs(ddiffY) > 50) {
                 scrolling = true;
 
                 if (diffY > 0 && currentIndex < sections.length - 1) {
@@ -663,6 +676,12 @@
             }
 
             setTimeout(() => scrolling = false, 500);
+        });
+
+        // Trigger animasi untuk section home saat pertama kali dimuat
+        window.addEventListener('load', function() {
+            const homeSection = document.getElementById('home');
+            triggerOrnamentAnimation(homeSection);
         });
     </script>
 
