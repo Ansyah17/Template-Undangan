@@ -534,34 +534,6 @@
                 link.classList.toggle('active', i === index);
             });
             currentIndex = index;
-
-            triggerOrnamentAnimation(sections[index]);
-        }
-
-        // Fungsi untuk memicu animasi ornamen
-        function triggerOrnamentAnimation(section) {
-            // Hapus class animasi sebelumnya
-            const orn1 = section.querySelector('.orna-1');
-            const orn2 = section.querySelector('.orna-2');
-            const orn3 = section.querySelector('.orna-3');
-            const orn4 = section.querySelector('.orna-4');
-            
-            orn1.classList.remove('animate-orna-1');
-            orn2.classList.remove('animate-orna-2');
-            orn3.classList.remove('animate-orna-3');
-            orn4.classList.remove('animate-orna-4');
-            
-            // Trigger reflow
-            void orn1.offsetWidth;
-            void orn2.offsetWidth;
-            void orn3.offsetWidth;
-            void orn4.offsetWidth;
-            
-            // Tambahkan class animasi kembali
-            orn1.classList.add('animate-orna-1');
-            orn2.classList.add('animate-orna-2');
-            orn3.classList.add('animate-orna-3');
-            orn4.classList.add('animate-orna-4');
         }
 
         // Set the date we're counting down to
