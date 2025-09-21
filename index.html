@@ -77,10 +77,10 @@
             text-align: center;
             top: 0;
             opacity: 0;
-            pointer-events: none;
-            background-image: url(background-3.jpg);
             transform: scale(0.9);
             transition: opacity 1s ease, transform 1s ease-out;
+            pointer-events: none;
+            background-image: url(background-3.jpg);
         }
 
         .section.active {
@@ -314,6 +314,15 @@
         .animate-orna-4 {
             animation: slideInFromBottomLeft 1.5s ease-out forwards;
         }
+
+        @media (max-width: 414px) {
+
+            body,
+            .section,
+            .bottom-nav {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -330,7 +339,7 @@
          </div>
          <!-- isi -->
         <h1>Happy 7Th Birthday</h1>
-        <img class="img-home" src="aliff.jpg" alt="Foto"><br><br>
+        <img class="img-home" src="lele.jpg" alt="Foto"><br><br>
         <p>With Pleasure</p>
         <h2>Guest Name</h2>
         <button class="open button" id="open" onclick="openButtton()">Open Invitation</button>
@@ -493,10 +502,6 @@
             bgMusic.play();
             iconPp.style.display = "block";
             scrollDisabled = false; // ✅ scroll baru diaktifkan setelah klik tombol
-            
-            // Trigger animasi ornamen untuk section acara
-            triggerOrnamentAnimation(acara);
-            
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
             }
@@ -529,8 +534,7 @@
                 link.classList.toggle('active', i === index);
             });
             currentIndex = index;
-            
-            // Trigger animasi ornamen untuk section yang aktif
+
             triggerOrnamentAnimation(sections[index]);
         }
 
@@ -639,7 +643,7 @@
             const diffY = startY - endY;
 
             // Jika pergeseran cukup signifakan (minimal 50px)
-            if (Math.abs(ddiffY) > 50) {
+            if (Math.abs(diffY) > 50) {
                 scrolling = true;
 
                 if (diffY > 0 && currentIndex < sections.length - 1) {
@@ -667,12 +671,6 @@
             }
 
             setTimeout(() => scrolling = false, 500);
-        });
-
-        // Trigger animasi untuk section home saat pertama kali dimuat
-        window.addEventListener('load', function() {
-            const homeSection = document.getElementById('home');
-            triggerOrnamentAnimation(homeSection);
         });
     </script>
 
